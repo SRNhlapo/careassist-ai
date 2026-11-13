@@ -6,8 +6,8 @@ import { ROLE_LABEL } from '../lib/labels'
 const ALL = ['admin', 'nurse', 'doctor', 'receptionist', 'supervisor']
 const LINKS = [
   ['/', 'Dashboard', ALL],
-  ['/register', 'Enrol learner', ['nurse', 'receptionist']],
-  ['/doctor', 'Coordinator dashboard', ['doctor']],
+  ['/register', 'Add simulated case', ['nurse', 'receptionist']],
+  ['/doctor', 'Supervisor dashboard', ['doctor']],
   ['/audit', 'Audit logs', ['admin', 'supervisor']],
 ]
 
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
   return (
     <div className='min-h-screen bg-white'>
       <header className='bg-teal-700 text-white px-4 py-3 flex flex-wrap gap-4 items-center'>
-        <b>CareAssist AI</b>
+        <b>CareAssist AI - Student Edition</b>
         {LINKS.filter(l => l[2].includes(profile?.role)).map(l => <Link key={l[0]} to={l[0]}>{l[1]}</Link>)}
         <span className='ml-auto text-sm'>{profile?.full_name} ({ROLE_LABEL[profile?.role]})</span>
         <button onClick={() => supabase.auth.signOut()}>Sign out</button>

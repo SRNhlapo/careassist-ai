@@ -1,23 +1,23 @@
 export const ROLE_LABEL = {
-  admin: 'Admin', nurse: 'Tutor', doctor: 'Coordinator',
-  receptionist: 'Registrar', supervisor: 'Programme manager',
+  admin: 'Admin', nurse: 'Medical student', doctor: 'Supervising doctor',
+  receptionist: 'Simulation coordinator', supervisor: 'Programme lead',
 }
 export const PRIORITY_LABEL = {
-  EMERGENCY: 'At risk', URGENT: 'Needs support', PRIORITY: 'Monitor',
-  ROUTINE: 'On track', INCOMPLETE: 'Incomplete',
+  EMERGENCY: 'Emergency', URGENT: 'Urgent', PRIORITY: 'Priority',
+  ROUTINE: 'Routine', INCOMPLETE: 'Incomplete',
 }
 export const STATUS_LABEL = {
-  waiting: 'Waiting', screening: 'Being assessed', doctor_review: 'Coordinator review',
-  closed: 'Closed', draft_ai: 'AI draft', submitted: 'Submitted',
+  waiting: 'Waiting', screening: 'Being assessed', doctor_review: 'Supervisor review',
+  closed: 'Closed', draft_ai: 'AI practice draft', submitted: 'Submitted',
   accepted: 'Approved', rejected: 'Rejected', info_requested: 'More info requested',
 }
 export const SECTION_LABEL = {
-  presenting_complaint: 'Learning goal',
-  reported_symptoms: 'Reported struggles',
-  relevant_history: 'Relevant background',
-  recorded_observations: 'Recorded scores',
+  presenting_complaint: 'Presenting complaint',
+  reported_symptoms: 'Reported symptoms',
+  relevant_history: 'Relevant history',
+  recorded_observations: 'Recorded observations',
   missing_information: 'Missing information',
-  concerning_findings: 'Areas of concern',
-  suggested_department: 'Suggested support (e.g. maths tutoring)',
-  nurse_comments: 'Tutor comments',
+  concerning_findings: 'Concerning findings',
+  suggested_department: 'Suggested department',
+  nurse_comments: 'Student comments',
 }

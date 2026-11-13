@@ -1,14 +1,19 @@
-// Plausibility ranges only to catch typos. These flag, never auto-correct.
-const RANGES = {
-  heart_rate: [20, 300], resp_rate: [4, 80], temperature: [25, 45],
-  oxygen_saturation: [30, 100], bp_systolic: [40, 300], bp_diastolic: [20, 200],
-  pain_score: [0, 10], weight: [0.3, 500], height: [20, 260],
+export const RANGES = {
+  oxygen_saturation: [50, 100, 'SpO2 (%)'],
+  bp_systolic: [40, 260, 'Systolic BP (mmHg)'],
+  heart_rate: [20, 250, 'Heart rate (bpm)'],
+  temperature: [30, 45, 'Temperature (°C)'],
+  resp_rate: [4, 70, 'Respiratory rate (/min)'],
+  pain_score: [0, 10, 'Pain score (0-10)'],
 }
 
-export function validateObservation(type, value) {
-  const v = Number(value)
-  if (Number.isNaN(v)) return 'Not a number'
-  const r = RANGES[type]
-  if (r && (v < r[0] || v > r[1])) return `Value looks implausible (${r[0]}-${r[1]})`
-  return null
+export function validate(values) {
+  const errors = []
+  for (const [k, [min, max, label]] of Object.entries(RANGES)) {
+    const v = values[k]
+    if (v === '' || v === undefined || v === null) continue
+    const n = Number(v)
+    if (Number.isNaN(n) || n < min || n > max) errors.push(`${label} must be between ${min} and ${max}`)
+  }
+  return errors
 }
