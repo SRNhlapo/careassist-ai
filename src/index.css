@@ -1,22 +1,64 @@
 @import 'tailwindcss';
 
-@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(220,38,38,.6); } 100% { box-shadow: 0 0 0 10px rgba(220,38,38,0); } }
-@keyframes shimmer { to { background-position: -200% 0; } }
-@keyframes gradient { 50% { background-position: 100% 50%; } }
+body {
+  margin: 0;
+  background: #f0fdfa;
+  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
+}
 
-.fade-up { animation: fade-up .5s ease both; animation-delay: calc(var(--i, 0) * 70ms); }
-.lift { transition: transform .2s ease, box-shadow .2s ease; }
-.lift:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(13,148,136,.18); }
-.btn { transition: transform .15s ease, filter .2s ease; }
-.btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
-.btn:active { transform: scale(.97); }
-.row-hover { transition: background-color .15s ease; }
-.row-hover:hover { background-color: #f0fdfa; }
-.pulse-emergency { animation: pulse-ring 1.4s infinite; }
-.skeleton { background: linear-gradient(90deg,#e2e8f0 25%,#f1f5f9 50%,#e2e8f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: .375rem; }
-.hero-bg { background: linear-gradient(120deg,#0f766e,#2563eb,#0d9488); background-size: 200% 200%; animation: gradient 12s ease infinite; }
+/* moving gradient */
+.bg-aurora {
+  position: fixed; inset: 0; z-index: -2;
+  background: linear-gradient(120deg, #ecfeff, #ccfbf1, #e0f2fe, #d1fae5, #ecfeff);
+  background-size: 300% 300%;
+  animation: aurora 18s ease infinite;
+}
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* drifting colour blobs */
+.blob { position: fixed; border-radius: 9999px; filter: blur(60px); opacity: .4; z-index: -1; pointer-events: none; }
+.blob-a { width: 420px; height: 420px; background: #14b8a6; top: -120px; left: -100px; animation: drift1 22s ease-in-out infinite; }
+.blob-b { width: 380px; height: 380px; background: #22d3ee; bottom: -140px; right: -80px; animation: drift2 26s ease-in-out infinite; }
+.blob-c { width: 300px; height: 300px; background: #34d399; top: 40%; left: 55%; animation: drift3 30s ease-in-out infinite; }
+@keyframes drift1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(140px, 90px); } }
+@keyframes drift2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-160px, -70px); } }
+@keyframes drift3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-100px, 110px); } }
+
+/* floating medical crosses */
+.float-cross { position: fixed; bottom: -60px; z-index: -1; color: #0d9488; opacity: .2; pointer-events: none; animation: rise linear infinite; }
+@keyframes rise {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-125vh) rotate(180deg); }
+}
+
+/* ECG line wipes on, holds, then wipes off (path uses pathLength="100") */
+.ecg-line path { stroke-dasharray: 100; animation: ecg 3.4s linear infinite; }
+@keyframes ecg {
+  0% { stroke-dashoffset: 100; }
+  55% { stroke-dashoffset: 0; }
+  85% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -100; }
+}
+
+/* frosted glass panel */
+.glass {
+  background: rgba(255, 255, 255, .78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: 0 12px 40px rgba(13, 148, 136, .14);
+}
+
+.fade-up { animation: fadeUp .6s ease both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  *, *::before, *::after { animation: none !important; }
 }
