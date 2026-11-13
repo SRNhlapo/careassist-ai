@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
+import { ROLE_LABEL } from '../lib/labels'
 
 const ALL = ['admin', 'nurse', 'doctor', 'receptionist', 'supervisor']
 const LINKS = [
