@@ -1,16 +1,49 @@
-# React + Vite
+# CareAssist AI · Student Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A practice ward for nursing and medical students. Students triage simulated patients, write clinical handovers, learn short clinical modules, and test themselves with a quiz that builds a personal study plan.
 
-Currently, two official plugins are available:
+**Live demo:** <your Netlify link>
+**Demo video:** <your Loom link>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## The problem
+Nursing and medical students get little safe practice at triage and handover before reaching a real ward, and feedback is slow. A missed priority or a vague handover can harm a patient.
 
-## React Compiler
+## Our solution
+CareAssist AI is a simulated ward where students practise these skills on fictional patients, learn the theory behind them, and test their knowledge.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+- Role-based sign-in with protected routes
+- Dashboard of simulated cases with priority, status and search
+- Rules-based triage priority
+- Assess and Handover workflows
+- Learning centre: triage (SATS), ABCDE, vital signs, SBAR handover
+- Quick quiz with explanations
+- Personal study plan that links missed questions back to the right module
+- Progress page with quiz history
 
-## Expanding the ESLint configuration
+## Tech stack
+- React and Vite
+- Tailwind CSS
+- React Router
+- Supabase (authentication and database)
+- Netlify (hosting and serverless functions)
+- OpenAI API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Safety and privacy
+- Fictional patients only
+- Educational use, not clinical advice
+- Triage priority comes from transparent rules, and AI output is reviewed by a human supervisor
+
+## Run locally
+    npm install
+    npm run dev
+
+Create a `.env` file with your Supabase and API keys (not committed to Git).
+
+## Roadmap
+- Save quiz scores in Supabase so progress follows the student across devices
+- Larger, expert-reviewed question bank
+- Lecturer dashboards for nursing schools
+
+## Team
+<your name> and <teammate's name>
