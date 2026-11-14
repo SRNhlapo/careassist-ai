@@ -1,0 +1,58 @@
+export const modules = [
+  {
+    id: "triage",
+    title: "Triage and priority",
+    minutes: 4,
+    intro: "Triage sorts patients by clinical urgency, not by who arrived first.",
+    points: [
+      "South Africa uses the South African Triage Scale (SATS): colour codes plus a Triage Early Warning Score (TEWS) from vital signs.",
+      "Red = emergency (immediate), Orange = very urgent, Yellow = urgent, Green = routine.",
+      "Emergency signs (e.g. airway compromise, active seizure, severe bleeding) override the score.",
+      "Reassess: a patient's priority changes when their condition changes.",
+    ],
+    tip: "Always confirm thresholds and target times against the current SATS training manual.",
+  },
+  {
+    id: "abcde",
+    title: "The ABCDE approach",
+    minutes: 4,
+    intro: "A structured way to assess a sick patient and treat the most life-threatening problem first.",
+    points: [
+      "A = Airway: is it open and clear?",
+      "B = Breathing: rate, effort, oxygen saturation.",
+      "C = Circulation: pulse, blood pressure, bleeding, perfusion.",
+      "D = Disability: level of consciousness, glucose.",
+      "E = Exposure: examine fully while keeping the patient warm and dignified.",
+      "Fix problems as you find them before moving to the next letter.",
+    ],
+    tip: "Chest tightness with shortness of breath is a Breathing and Circulation problem until proven otherwise.",
+  },
+  {
+    id: "vitals",
+    title: "Vital signs: adult reference ranges",
+    minutes: 3,
+    intro: "Know the normal range so you can spot the abnormal one quickly.",
+    points: [
+      "Heart rate (resting adult): about 60-100 bpm.",
+      "Respiratory rate: about 12-20 breaths per minute.",
+      "SpO2 on room air: about 95-100%.",
+      "Blood pressure: around 120/80 mmHg is a typical normal reading.",
+      "Temperature: about 36-37.5 °C.",
+    ],
+    tip: "Children and some patient groups have different normals. Trends matter more than a single number.",
+  },
+  {
+    id: "sbar",
+    title: "Clinical handover with SBAR",
+    minutes: 3,
+    intro: "SBAR keeps a handover short, complete and safe.",
+    points: [
+      "Situation: who the patient is and what is happening now.",
+      "Background: relevant history, allergies, medication, what has been done so far.",
+      "Assessment: your findings, vital signs and what you think the problem is.",
+      "Recommendation: what you need or suggest the receiving clinician does, and how urgently.",
+      "Finish by checking the receiver has understood and can ask questions.",
+    ],
+    tip: "A good handover is specific. Say the numbers, not 'the vitals are fine'.",
+  },
+];
