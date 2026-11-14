@@ -10,6 +10,8 @@ const LINKS = [
   ['/', 'Dashboard', ALL],
   ['/register', 'Add simulated case', ['nurse', 'receptionist']],
   ['/doctor', 'Supervisor dashboard', ['doctor']],
+  ['/learn', 'Learn', ALL],
+  ['/quiz', 'Quiz', ALL],
   ['/progress', 'Progress', ['nurse', 'doctor', 'supervisor']],
   ['/audit', 'Audit logs', ['admin', 'supervisor']],
 ]
@@ -17,6 +19,7 @@ const LINKS = [
 export default function Layout({ children }) {
   const { profile } = useAuth()
   const { pathname } = useLocation()
+  const isActive = (path) => (path === '/' ? pathname === '/' : pathname.startsWith(path))
   return (
     <div className='min-h-screen'>
       <Backdrop />
@@ -28,7 +31,7 @@ export default function Layout({ children }) {
           </Link>
           {LINKS.filter(l => l[2].includes(profile?.role)).map(l => (
             <Link key={l[0]} to={l[0]}
-              className={`text-sm px-3 py-1 rounded-full transition ${pathname === l[0] ? 'bg-white/20' : 'hover:bg-white/10'}`}>
+              className={`text-sm px-3 py-1 rounded-full transition ${isActive(l[0]) ? 'bg-white/20' : 'hover:bg-white/10'}`}>
               {l[1]}
             </Link>
           ))}

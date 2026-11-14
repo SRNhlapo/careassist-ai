@@ -9,6 +9,9 @@ import Screening from './pages/Screening'
 import Handover from './pages/Handover'
 import DoctorDashboard from './pages/DoctorDashboard'
 import AuditLogs from './pages/AuditLogs'
+import Learn from './pages/Learn'
+import Quiz from './pages/Quiz'
+import Progress from './pages/Progress'
 
 const P = ({ roles, children }) => (
   <ProtectedRoute roles={roles}><Layout>{children}</Layout></ProtectedRoute>
@@ -26,6 +29,11 @@ export default function App() {
           <Route path='/handover/:encounterId' element={<P roles={['nurse', 'doctor']}><Handover /></P>} />
           <Route path='/doctor' element={<P roles={['doctor']}><DoctorDashboard /></P>} />
           <Route path='/audit' element={<P roles={['admin', 'supervisor']}><AuditLogs /></P>} />
+
+          <Route path='/learn' element={<P><Learn /></P>} />
+          <Route path='/learn/:id' element={<P><Learn /></P>} />
+          <Route path='/quiz' element={<P><Quiz /></P>} />
+          <Route path='/progress' element={<P><Progress /></P>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
