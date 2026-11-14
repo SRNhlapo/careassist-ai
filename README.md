@@ -2,8 +2,8 @@
 
 A practice ward for nursing and medical students. Students triage simulated patients, write clinical handovers, learn short clinical modules, and test themselves with a quiz that builds a personal study plan.
 
-**Live demo:** <your Netlify link>
-**Demo video:** <your Loom link>
+**Live demo:** <https://careassistai.netlify.app/>
+**Demo video:** <https://www.loom.com/share/da8bb8ebc86e4bfea2ccc8b05127da1b>
 
 ## The problem
 Nursing and medical students get little safe practice at triage and handover before reaching a real ward, and feedback is slow. A missed priority or a vague handover can harm a patient.
